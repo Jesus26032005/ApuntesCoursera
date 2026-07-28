@@ -56,10 +56,6 @@ const App = () => {
 
 
 
-
-
-
-
 // USEREDUCE: Es un hook de React que permite manejar el estado de un componente de manera más compleja que useState. Se utiliza cuando se tiene un estado que depende de acciones o eventos, y se necesita actualizarlo de manera predecible. useReducer recibe un reducer (una función que define cómo actualizar el estado) y un estado inicial, y devuelve el estado actual y una función dispatch para enviar acciones al reducer.
 
 // Ejemplo de uso de useReducer en React:
@@ -163,4 +159,3 @@ const reducer = (estado, accion) => {
 
 Si tu manejo de luces creciera a "agregar", "eliminar", "apagar todas", "renombrar"... ahí sí conviene migrar a useReducer, porque tener 4-5 funciones sueltas tipo agregarLuz, eliminarLuz, apagarTodas empieza a ser más difícil de mantener que un solo reducer con un switch.
 */
-
