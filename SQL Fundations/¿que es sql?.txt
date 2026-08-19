@@ -1,0 +1,60 @@
+Introducción 
+El Lenguaje de Consulta Estructurada (SQL) es el lenguaje de los datos. Tanto si está analizando los resultados de unas elecciones como optimizando un inventario, SQL le permite acceder, organizar y extraer información de bases de datos relacionales, actuando como puente entre los seres humanos y las bases de datos.
+
+Imagina que gestionas la base de datos de una tienda de música, como hemos visto al utilizar la base de datos Chinook. SQL te ayuda a recuperar información sobre los clientes, realizar un seguimiento de las compras o actualizar el inventario, todo ello manteniendo la estructura y la integridad de la base de datos. Esta función de SQL se vuelve aún más crítica a medida que aumentan el volumen y la complejidad de los datos, lo que la convierte en una habilidad fundamental en nuestro mundo impulsado por los datos.
+
+Sintaxis y comandos básicos de SQL
+La sintaxis de SQL es sencilla e intuitiva. El comando más importante que encontrará es la sentencia SELECT, que se utiliza para consultar o recuperar datos. Es como pedirle a un bibliotecario libros específicos sobre un tema.
+
+Una consulta SQL básica tendría el siguiente aspecto:
+
+1
+SELECT column1 FROM table_name;
+SELECT: Esta palabra clave es como la parte "dime" de una frase en una conversación: se utiliza para especificar qué información quieres.
+
+columna1: Especifica las columnas (o campos) de datos que te interesan.
+
+FROM nombre_tabla: indica la tabla de origen que contiene los datos.
+
+Por ejemplo, podríamos consultar nuestra base de datos Chinook de esta forma para identificar todos los artistas musicales de la base de datos:
+
+1
+SELECT Name FROM Artists;
+Restablecer
+ Pruebe a ejecutar este código. Los resultados deberían ser una lista de artistas musicales en orden alfabético.
+
+Casos de uso común de SQL 
+SQL desempeña un papel fundamental en diversos sectores, ya que ayuda a los profesionales de numerosos campos a obtener información práctica y tomar decisiones fundamentadas:
+
+Sanidad:
+
+Los investigadores médicos utilizan SQL para analizar los datos de los pacientes, identificar tendencias como la propagación de enfermedades y desarrollar posibles tratamientos.
+
+Comercio minorista:
+
+Los gerentes de tiendas pueden utilizar SQL para recuperar datos de ventas, comprender los hábitos de compra de los consumidores, optimizar el inventario y diseñar estrategias de marketing basadas en el comportamiento de los consumidores.
+
+Finanzas:
+
+Los analistas financieros aprovechan SQL para agregar datos de transacciones, prever las tendencias del mercado e impulsar las decisiones de inversión, garantizando que las empresas se mantengan a la vanguardia.
+
+Tecnología:
+
+Los desarrolladores integran SQL con las aplicaciones web para manipular las bases de datos, garantizando una experiencia de usuario fluida y una gestión eficaz de los datos.
+
+El poder transformador de SQL 
+SQL es como tener acceso a una caja de herramientas digital que ofrece instrumentos precisos y potentes para gestionar e interpretar datos en bruto. Al igual que el aprendizaje de los fundamentos de cualquier lenguaje, el dominio de SQL transforma a un principiante en datos en un experto narrador de datos. Le permite extraer conclusiones significativas que pueden impulsar decisiones estratégicas e innovación.
+
+Considere SQL no sólo como una habilidad técnica, sino como una forma de alfabetización digital que pone el poder de los datos al alcance de su mano. En el mundo actual, en el que los datos son fundamentales para la toma de decisiones, comprender SQL le proporciona una ventaja significativa. Al dominar SQL, podrá crear informes detallados, identificar tendencias y obtener información que puede influir en decisiones empresariales cruciales.
+
+Su viaje de aprendizaje 
+Al embarcarse en este viaje hacia el dominio de SQL, recuerde los cimientos que hemos construido con la comprensión de las bases de datos y sus estructuras. El objetivo es fomentar una comprensión exhaustiva de SQL, que le permita:
+
+Construir consultas precisas para recuperar datos específicos.
+
+Actualizar, eliminar y gestionar datos de forma eficiente.
+
+Garantizar la integridad y coherencia de sus datos mediante prácticas de consulta disciplinadas.
+
+El dominio de SQL abre un mundo de posibilidades. Se convertirá en el puente entre los datos brutos y las perspectivas significativas, contando historias a través de los números e influyendo en las decisiones a todos los niveles. A medida que profundizamos en este curso, aproveche la oportunidad de convertir los datos en su mejor aliado, equipado con los conocimientos y habilidades para aprovechar todo su potencial.
+

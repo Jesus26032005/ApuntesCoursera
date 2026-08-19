@@ -1,0 +1,88 @@
+Sentencias SQL SELECT: El latido de la recuperación de datos
+La obtención de información valiosa a partir de los datos empieza por dominar el arte de la consulta de bases de datos. En el núcleo de esta habilidad se encuentra la sentencia SQL SELECT, el comando SQL más fundamental utilizado para extraer información de una base de datos. Ahora que ya ha probado una consulta SQL sencilla y ha aprendido a utilizar el pseudocódigo, en esta lectura repasaremos la anatomía de la sentencia SELECT, cómo funciona en la práctica y cómo utilizarla de forma eficaz.
+
+Comprender el papel de la sentencia SELECT en la recuperación de datos
+Una sentencia SELECT es la forma en que formulamos una pregunta específica a una base de datos para recuperar los datos que necesitamos. En lugar de devolver todos los datos de una tabla, podemos ajustar nuestras consultas para obtener sólo la información más relevante. Cuando escriba una sentencia SELECT, piense siempre en lo siguiente:
+
+¿Qué información necesito? (Columnas específicas)
+
+¿Dónde está almacenada esta información? (tablas)
+
+¿Necesito filtrar los resultados? (DONDE)
+
+¿Cómo deben organizarse los resultados? (ORDENAR POR)
+
+¿Necesito limitar el número de filas devueltas? (LIMIT)
+
+Veámoslo con un ejemplo:
+
+Cláusula SELECT: La cláusula SELECT especifica qué columnas desea recuperar. Piense en ella como una selección de los detalles exactos que necesita de un gran conjunto de información. Por ejemplo:   
+
+1
+SELECT FirstName, LastName
+
+Cláusula FROM: Esta cláusula indica a la base de datos dónde buscar los datos. Identifica la(s) tabla(s) de la(s) que deben recuperarse los datos. Por ejemplo, la cláusula   
+
+12
+SELECT FirstName, LastName
+FROM Employees;
+Restablecer
+
+Cláusula WHERE: Considérela su filtro para refinar las respuestas. Reduce el conjunto de datos basándose en condiciones específicas, como en este caso:  
+
+123
+SELECT FirstName, LastName
+FROM Employees
+WHERE ReportsTo = 2;
+Restablecer
+
+Cláusula ORDER BY: ¿Desea obtener los resultados en un orden específico? Esta cláusula ordena los resultados y permite presentar los datos en orden ascendente o descendente en función de una o varias columnas: 
+
+123
+SELECT FirstName, LastName
+FROM Employees
+ORDER BY LastName ASC;
+Restablecer
+Casos de uso común y ejemplos prácticos
+Para poner esto en términos prácticos, considere cómo pueden aplicarse las sentencias SQL SELECT en diversos ámbitos.
+
+Comercio minorista: Un minorista podría consultar su base de datos de ventas para encontrar todas las transacciones que superaron los 100 dólares en el último mes, utilizando la sentencia SELECT para extraer las cifras de ventas relevantes.
+
+Sanidad: Las sentencias SELECT son cruciales para filtrar datos de pacientes en función de su edad o diagnóstico, lo que ayuda en la gestión de pacientes y la elaboración de informes.
+
+Finanzas: Los analistas financieros utilizan consultas SELECT para obtener datos de carteras de inversores que deben revisarse o ajustarse en función de las condiciones del mercado.
+
+Ejemplo
+Supongamos que usted es un directivo que necesita una lista de los miembros del equipo que dependen de usted, con los detalles ordenados alfabéticamente por apellido. A continuación se explica cómo elaborar esta consulta:
+
+1234
+SELECT FirstName, LastName
+FROM Employees
+WHERE ReportsTo = 1
+ORDER BY LastName ASC;
+Restablecer
+Desglosándola:
+
+SELECT Apellido, Nombre: Especifica qué columnas de la tabla Empleado queremos ver.
+
+FROM Empleado: Indica que nuestra fuente de datos es la tabla Empleado.
+
+WHERE ReportsTo = 1: Filtra los resultados para mostrar sólo los empleados que reportan al gerente con EmployeeID 1.
+
+ORDER BY LastName ASC: Asegura que los resultados se ordenan alfabéticamente por el apellido en orden ascendente.
+
+Consejos para solucionar problemas y errores comunes
+Al principio, aprender SQL puede parecer como armar un rompecabezas. Los errores de sintaxis y la lógica de consulta incorrecta pueden hacerle tropezar, pero cometer errores es como se produce el verdadero aprendizaje. He aquí algunos problemas comunes y sus soluciones.
+
+Errores desintaxis: Asegúrese de que todos los comandos SQL están escritos correctamente y siguen el orden estructurado. SQL es un lenguaje estructurado, por lo que los elementos deben colocarse y escribirse correctamente. SQL es un lenguaje indulgente cuando se trata de espacios en blanco, pero asegúrese de evitar los espacios en blanco alrededor de los datos de texto entre comillas, como "París".
+
+Errores lógicos: A veces, la consulta se ejecuta pero devuelve resultados inesperados. Reevalúe sus condiciones WHERE y la lógica ORDER BY para asegurarse de que coinciden con sus intenciones.
+
+Depuración de consultas: Si una consulta es compleja, divídala en partes y pruebe cada una de ellas individualmente antes de combinarlas en una sentencia completa.
+
+Comprender la sintaxis y la funcionalidad de las sentencias SQL SELECT es la puerta de entrada para extraer información significativa de los datos. A medida que se sienta más cómodo con estas instrucciones, empezará a ver SQL como una herramienta intuitiva que le permitirá plantear preguntas más profundas y tomar decisiones informadas en diversas aplicaciones.
+
+Recurso: Guía rápida de SQL
+Descargue esta Guía Rápida de SQL para elaborar consultas SQL. Al final de este curso, comprenderá cómo utilizar cada elemento incluido en esta guía.
+
+
