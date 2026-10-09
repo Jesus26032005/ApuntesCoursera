@@ -60,3 +60,8 @@ print(subtract)
 # or assign the returned values to a variable
 result = sum_and_subtract(5, 3)
 print(result)
+
+
+# difference between parameters and arguments
+# parameters are the variables listed inside the parentheses in the function definition
+# arguments are the values you pass into the function when you call it
