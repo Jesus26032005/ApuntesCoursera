@@ -93,5 +93,5 @@ print(dictionary_2) # Print {"name": "John", "age": 30, "city": "New York", "cou
 # unpacking is a more elegant way to concatenate dictionaries
 dictionary_5 = {**dictionary_3, **dictionary_4}
 print(dictionary_5) # Print {"country": "USA", "hobby": "reading"}
-# this form take the items from the dictionaries and create a new dictionary
+# this form take the items from the dictionaries and create a new dictionary 
 
