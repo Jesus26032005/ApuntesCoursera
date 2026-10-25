@@ -42,15 +42,6 @@ delete persona.apellido; // elimina la propiedad apellido del objeto persona
 persona2.saludar(); // notación de punto
 persona2["añosEdad"](); // notación de corchetes
 
-// dentro de un objeto si se quiere acceder a una propiedad del mismo objeto, se puede usar la palabra reservada this.
-let persona3 = {
-    nombre: "Zaddkiel",
-    edad: 30,
-    saludador: function() {
-        console.log("Hola, mi nombre es " + this.nombre);
-    }
-}
-
 // asimismo se pueden tener otros objetos dentro de otros objetos, lo que se conoce como objetos anidados y para acceder a las propiedades de un objeto anidado, se puede usar la notación de punto o la notación de corchetes.
 
 let persona4 = {
@@ -91,7 +82,8 @@ persona4.imprimir = function() {
 }
 persona4.imprimir();
 
-// para recorrer un objeto, se puede usar un bucle for...in, que itera sobre las propiedades enumerables de un objeto.
+// for...in recorre propiedades enumerables, incluidas las heredadas.
+// Object.entries, usado debajo, recorre solo propiedades propias enumerables.
 for (var key in persona4) {
     console.log(key + ": " + persona4[key]);
 }
@@ -110,10 +102,11 @@ console.log(favCar)
 
 // nota: un objeto sin asignar propiedades es un objeto vacío, y se puede crear usando llaves {} o usando el constructor Object().
 
-objetoVacio1 = {}
-objetoVacio2 = new Object()
+const objetoVacio1 = {};
+const objetoVacio2 = new Object();
 
 console.log(objetoVacio1)
 console.log(objetoVacio2)
 
-// cuando usar un objeto o un array depende del tipo de datos que se quiera almacenar y de cómo se quiera acceder a ellos. Es decir, si se quiere almacenar una colección de elementos ordenados y se quiere acceder a ellos por su índice, se debe usar un array. Si se quiere almacenar una colección de elementos no ordenados y se quiere acceder a ellos por su clave, se debe usar un objeto. Ademas , los arrays tienen métodos y propiedades específicas para trabajar con colecciones de elementos, mientras que los objetos tienen métodos y propiedades específicas para trabajar con pares clave-valor.
+// cuando usar un objeto o un array depende del tipo de datos que se quiera almacenar y de cómo se quiera acceder a ellos. Es decir, si se quiere almacenar una colección de elementos ordenados y se quiere acceder a ellos por su índice, se debe usar un array. Si se quiere almacenar una colección de propiedades identificadas por nombre y se quiere acceder a ellos por su clave, se debe usar un objeto. Ademas , los arrays tienen métodos y propiedades específicas para trabajar con colecciones de elementos, mientras que los objetos tienen métodos y propiedades específicas para trabajar con pares clave-valor.
+// Los objetos tienen reglas definidas de orden de enumeración; aun así, usa arrays cuando lo central sea una secuencia por posiciones.

@@ -10,7 +10,7 @@ console.log(a + b); // Suma: 15
 console.log(a - b); // Resta: 5
 console.log(a * b); // Multiplicación: 50
 console.log(a / b); // División: 2
-console.log(a % b); // Módulo: 0
+console.log(a % b); // Resto de la división: 0 (con negativos no equivale siempre al módulo matemático).
 console.log(a ** b); // Exponenciación: 100000
 
 // 2. Operadores de Asignación: Se utilizan para asignar valores a las variables.
@@ -30,22 +30,25 @@ console.log(c); // Salida: 10
 c %= 4; // Equivalente a c = c % 4
 console.log(c); // Salida: 2
 
-// nota: una division entre cero devuelve Infinity, y una division de cero entre cero devuelve NaN (Not a Number).
+// Con Number, un valor positivo entre +0 da Infinity y uno negativo da -Infinity; 0 / 0 da NaN.
+// Con BigInt, dividir entre cero lanza RangeError. Number.isFinite ayuda a rechazar resultados no finitos.
 
 // 3. Operadores de Comparación: Se utilizan para comparar valores y devuelven un valor booleano (true o false).
 let d = 10;
 let e = "10";
 
-console.log(d == e); // Igualdad (solo compara valores): true
+console.log(d == e); // Igualdad con conversión automática de tipos: true
 console.log(d === e); // Igualdad estricta (compara valores y tipos): false
-console.log(d != e); // Desigualdad (solo compara valores): false
+console.log(d != e); // Desigualdad con conversión automática de tipos: false
 console.log(d !== e); // Desigualdad estricta (compara valores y tipos): true
 console.log(d > 5); // Mayor que: true
 console.log(d < 15); // Menor que: true
 console.log(d >= 10); // Mayor o igual que: true
 console.log(d <= 10); // Menor o igual que: true
 
-// 4. Operadores Lógicos: Se utilizan para combinar expresiones booleanas.
+// 4. Operadores Lógicos: permiten combinar condiciones y usan cortocircuito.
+// && y || devuelven operandos, no necesariamente booleanos: "Ada" || "Invitado" devuelve "Ada".
+// && omite el segundo operando si el primero es falsy; || lo omite si el primero es truthy.
 let f = true;
 let g = false;
 

@@ -49,20 +49,22 @@ switch (fruta) {
 dia= "lunes"
 hora= "15:00"
 
-if (dia=="lunes" && hora=="14:00") {
+if (dia === "lunes" && hora === "14:00") {
     console.log("xd")
 }
 
 
-if (dia!="lunes") {
+if (dia !== "lunes") {
      console.log("xd")
 }
 
 // Nota: Tambien el operador terniario se puede considear un codnicional comprimido de if-else
 
-(dia=="lunes") ? console.log("lunes") : console.log("otro dia")
+(dia === "lunes") ? console.log("lunes") : console.log("otro dia")
 
-// si tenemos una asignacion en la condicion esta se ejecutara si la asignacion es verdadera, por ejemplo:
+// Ejemplo intencional de asignación dentro de una condición: NO es una comparación.
+// x = 5 asigna el número 5; después if lo interpreta como verdadero porque no es cero.
+// Para comparar, asigna antes y escribe if (x === 5).
 let x;
 if (x = 5) { // Asignación en la condición
     console.log("La variable x es igual a 5.");

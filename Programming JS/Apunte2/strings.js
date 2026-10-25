@@ -3,14 +3,16 @@
 // comillas simples
 let string1 = 'Hola, soy un string con comillas simples';
 
-// se podria decir que es un array de caracteres, pero en realidad es un objeto que tiene propiedades y metodos que se pueden usar para manipular el string.
+// Un string es un primitivo inmutable, no un array ni un objeto.
+// JavaScript permite acceder a propiedades y métodos; los métodos producen texto nuevo, sin modificar el original.
 
 // para acceder a un caracter de un string, se puede usar la notación de corchetes o el metodo charAt().
 
 console.log(string1[0]);
 console.log(string1.charAt(0));
 
-// se puede obtener el largo de un string usando la propiedad length.
+// length cuenta unidades UTF-16, no siempre caracteres visibles: "😊".length es 2.
+// Con letras sencillas, suele coincidir con el número de caracteres que ves.
 console.log(string1.length)
 
 // algunos metodos utiles para manipular strings son:

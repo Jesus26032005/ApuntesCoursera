@@ -47,7 +47,8 @@ let algunasFrutas = frutas.slice(1, 3);
 console.log(algunasFrutas); // ["kiwi", "naranja"]
 console.log(frutas); // ["manzana", "kiwi", "naranja"]
 
-// se puede utiilizar un bucle for in para recorrer un array y acceder a sus elementos, el for in devuelve el indice de cada elemento del array, por lo que se puede acceder a los elementos del array usando el indice devuelto por el for in
+// for...in recorre claves enumerables como texto y puede incluir propiedades heredadas o adicionales.
+// En este array sencillo coinciden con sus índices; para recorrer valores normalmente preferimos for...of.
 for (let i in frutas) {
     console.log(frutas[i]);
 }
@@ -57,7 +58,8 @@ for (let fruta of frutas) {
     console.log(fruta);
 }
 
-// una matriz es un objeto que permite almacenar multiples valores en una sola variable, estos pueden ser de cualquier tipo de dato, incluyendo otros arrays y objetos, a diferencia de un array, una matriz puede tener multiples dimensiones
+// Una matriz puede representarse con arrays anidados, por ejemplo [[1, 2], [3, 4]].
+// No es un tipo distinto de array: cada elemento del array exterior es otro array (una fila).
 
 // Tarea 1:
 let clothes = ["camisa","pantalon","tennis","chor","sueter"]

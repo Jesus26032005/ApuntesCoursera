@@ -1,10 +1,10 @@
-// En js existen tres tipos de variables: var, let y const.
+// En JavaScript hay tres formas habituales de declarar variables: var, let y const.
 
 // let y const fueron introducidas en ES6, mientras que var es la forma tradicional de declarar variables en JavaScript.
 
 // var: Se utiliza para declarar variables que pueden ser reasignadas y tienen un alcance de función o global. Sin embargo, su uso puede llevar a problemas de hoisting y confusión en el alcance de las variables.
 
-// let: Se utiliza para declarar variables que pueden ser reasignadas, pero tienen un alcance de bloque. Esto significa que solo son accesibles dentro del bloque en el que se declaran, lo que ayuda a evitar problemas de alcance y hoisting.
+// let: Se utiliza para declarar variables que pueden ser reasignadas, pero tienen un alcance de bloque. Esto significa que solo son accesibles dentro del bloque en el que se declaran, lo que limita su uso al bloque. let y const también se preparan antes de ejecutar el bloque, pero no se pueden leer antes de inicializarlas (zona muerta temporal).
 
 // const: Se utiliza para declarar variables que no pueden ser reasignadas. Al igual que let, tienen un alcance de bloque. Sin embargo, es importante tener en cuenta que aunque la variable no pueda ser reasignada, si es un objeto o un array, sus propiedades o elementos pueden ser modificados.
 
@@ -29,7 +29,9 @@ console.log(PI); // Salida: 3.14159
 // TIPOS DE DATOS
 // En js existen varios tipos de datos que se pueden clasificar en dos categorías: primitivos y no primitivos.
 
-// los tipos de datos primitivos son aquellos que no son objetos y no tienen métodos.los primitivos son valores simples e inmutables guardados directamente en la memoria, mientras que los no primitivos son estructuras dinámicas que guardan una referencia a un lugar en la memoria Los tipos de datos primitivos en JavaScript son:
+// Hay siete tipos primitivos. Sus valores son inmutables; JavaScript permite acceder a métodos de algunos de ellos, como los strings, sin convertirlos en objetos permanentes.
+// Los objetos pueden modificarse; asignar el mismo objeto a otra variable comparte su referencia. No hace falta asumir una ubicación física en memoria para entender esta diferencia.
+// Los tipos primitivos son:
 
 // 1. Number: Representa números, tanto enteros como decimales.
 // 2. String: Representa cadenas de texto.
@@ -37,8 +39,8 @@ console.log(PI); // Salida: 3.14159
 // 4. Undefined: Representa una variable que ha sido declarada pero no inicializada.
 // 5. Null: Representa la ausencia intencional de cualquier valor u objeto.
 // 6. Symbol: Introducido en ES6, representa un valor único e inmutable.
-// 7. BigInt: Introducido en ES2020, representa números enteros grandes que no pueden ser representados por el tipo Number.
-// 8. Simbol: Introducido en ES6, representa un valor único e inmutable que se puede utilizar como identificador para propiedades de objetos. PPara crear un símbolo, se utiliza la función Symbol() y se le puede pasar un descriptor opcional como argumento.
+// 7. BigInt: Introducido en ES2020, representa enteros de precisión arbitraria, incluidos enteros pequeños. No se mezcla directamente con Number en operaciones aritméticas.
+// Symbol no es un octavo tipo: ya aparece en el punto 6. Symbol("descripción") crea un símbolo único.
 
 let numero = 42; // Number
 let texto = "Hola, mundo";

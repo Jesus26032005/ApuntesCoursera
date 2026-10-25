@@ -1,27 +1,30 @@
-// Existen tres valores que se consideran vacíos en JavaScript: null, undefined y string vacios.
+// null, undefined y "" representan situaciones distintas; no son una categoría única de valores vacíos del lenguaje.
 
-// null representa la ausencia intencional de cualquier valor u objeto. Se utiliza para indicar que una variable no tiene ningún valor asignado. Por ejemplo:
+// null representa la ausencia intencional de cualquier valor u objeto. Es un valor asignado explícitamente para representar ausencia según las reglas del programa. Por ejemplo:
 let variableNull = null;
 console.log(variableNull);
-// tambien se usa como valor de retorno de una función que no devuelve ningún valor, o como valor predeterminado para un parámetro opcional en una función.
+// Una función puede devolver null de forma explícita para indicar ausencia.
+// Si no tiene return con un valor, devuelve undefined, no null. Un parámetro opcional solo usa null por defecto si así lo declaramos.
 
 // undefined representa la ausencia de un valor asignado a una variable. Se utiliza para indicar que una variable ha sido declarada pero no se le ha asignado ningún valor. Por ejemplo:
 let variableUndefined;
 console.log(variableUndefined);
-// Casi todas las funciones devuelven undefined si no se especifica un valor de retorno. Por ejemplo, si una función no tiene una declaración return, devolverá undefined de forma predeterminada.
-// si una variable no esta definida igual adquiere el valor de undefined
+// En las funciones ordinarias, llegar al final sin return con un valor produce undefined; return; también lo hace.
+// Leer una variable nunca declarada lanza ReferenceError, no devuelve undefined.
+// Acceder a una propiedad ausente de un objeto sí devuelve normalmente undefined.
 
-// string vacio representa una cadena de texto que no contiene ningún carácter. Se utiliza para indicar que una variable de tipo string no tiene ningún valor asignado.
+// string vacio representa una cadena de texto que no contiene ningún carácter. Es un valor de texto válido de longitud cero; no significa que falte asignar un valor.
 
 // Nota: undefined indica que una variable fue declarada pero aún no tiene un valor asignado, mientras que null se asigna de forma consciente y deliberada para representar la ausencia intencional de un valor.
 
 /*
 Cuándo usar undefined
-• No lo asignes manualmente: Deja que JavaScript lo gestione.
+• Normalmente deja que JavaScript lo produzca; también es válido pasarlo o asignarlo de forma explícita si el contrato lo requiere.
 • Se produce automáticamente cuando:
 	• Declaras una variable sin inicializarla (let x;).
 	• Accedes a una propiedad que no existe en un objeto.
-	• Una función no tiene un return explícito o le faltan argumentos en la llamada.
+	• Una función ordinaria no tiene un return con valor.
+	• Un parámetro no recibe argumento ni tiene un valor por defecto.
 • Regla práctica: Es el estado por defecto que el motor de JavaScript le da a las cosas que aún no han sido definidas.
 
 Cuándo usar null

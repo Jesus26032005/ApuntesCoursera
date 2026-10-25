@@ -2,9 +2,11 @@
 
 // 1. Bucle for: Se utiliza cuando se conoce de antemano el número de iteraciones que se desean realizar. La sintaxis básica del bucle for es la siguiente:
 
+/* Esquema explicativo, no código ejecutable:
 for (inicialización; condición; incremento) {
   // Bloque de código a ejecutar en cada iteración
 }
+*/
 
 // Ejemplo:
 for (let i = 0; i < 5; i++) {
@@ -20,9 +22,11 @@ for (let i = 0; i < 5; i++) {
 
 // 2. Bucle while: Se utiliza cuando no se conoce de antemano el número de iteraciones y se desea repetir un bloque de código mientras se cumpla una condición. La sintaxis básica del bucle while es la siguiente:
 
+/* Esquema explicativo, no código ejecutable:
 while (condición) {
   // Bloque de código a ejecutar mientras la condición sea verdadera
 }
+*/
 
 // Ejemplo:
 let j = 0;
@@ -42,9 +46,11 @@ while (j < 5) {
 
 // 3. Bucle do...while: Similar al bucle while, pero garantiza que el bloque de código se ejecute al menos una vez, ya que la condición se evalúa después de la ejecución del bloque. La sintaxis básica del bucle do...while es la siguiente:
 
+/* Esquema explicativo, no código ejecutable:
 do {
   // Bloque de código a ejecutar al menos una vez
 } while (condición);
+*/
 
 // Ejemplo:
 let k = 0;

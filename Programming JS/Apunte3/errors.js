@@ -1,22 +1,22 @@
 // fallo: El programa continua ejecutandose y da un resultado inesperado
-// error: El programa se detiene y muestra un mensaje de error
+// excepción: interrumpe el flujo normal; si no se maneja, puede terminar la ejecución.
 
 // Alguunos errores que existen son los siguientes:
 // syntax error: error de sintaxis, se produce cuando el programa no cumple con las reglas del lenguaje de programación
 // runtime error: error en tiempo de ejecucion, se produce cuando el programa se esta ejecutando
-// value error: error de valor, se produce cuando se intenta realizar una operación con un valor incorrecto
+// Un valor puede ser inválido para el problema, pero ValueError no es un constructor estándar de JavaScript.
 // type error: error de tipo, se esta intentando realizar una operación con un tipo de dato incorrecto
 
 
 // Bloque try-catch: permite manejar los errores de manera controlada, evitando que el programa se detenga y mostrando un mensaje de error personalizado
 
 
-// trhow: permite lanzar un error de manera manual, deteniendo la ejecucion del programa y mostrando un mensaje de error personalizado
+// throw: permite lanzar un error de manera manual, deteniendo la ejecucion del programa y mostrando un mensaje de error personalizado
 
 try {
     console.log("Hola mundo");
     throw new Error("Este es un error de prueba");
-    throw new TypeError("Este es un error de tipo");
+    // No se ejecutaría otro throw aquí: el primero ya transfiere el control al catch.
 } catch (error) {
     console.log("Se produjo un error: " + error.message);
 }
@@ -51,24 +51,39 @@ try {
 // SyntaxError: error de sintaxis, se utiliza para manejar errores relacionados con la sintaxis del código
 // RangeError: error de rango, se utiliza para manejar errores relacionados con valores fuera de un rango permitido
 // AggregateError: error de agregación, se utiliza para manejar múltiples errores al mismo tiempo
-// InternalError: error interno, se utiliza para manejar errores internos del motor de JavaScript
+// InternalError: existe en algunos motores, pero no es un constructor estándar portable de ECMAScript.
 // URIError: error de URI, se utiliza para manejar errores relacionados con la codificación y decodificación de URIs
-// UnknownError: error desconocido, se utiliza para manejar errores que no se pueden clasificar en ninguna de las categorías anteriores
+// UnknownError no es un constructor estándar general de ECMAScript; para un error genérico usa Error.
 // EvalError: error de evaluación, se utiliza para manejar errores relacionados con la función eval()
 // URIError: error de URI, se utiliza para manejar errores relacionados con la codificación y decodificación de URIs
 
+// Cada error intencional se captura por separado para que todos los ejemplos se ejecuten.
 try {
-    console.log(username) // Reference error
-    //var a xd // Syntax error
-    "hello".pop() // Type error
-    (10).toString(2) // Range error
-
+    console.log(username); // ReferenceError: no se declaró este nombre.
+} catch (error) {
+    console.log("Se produjo un error: " + error.message);
+}
+try {
+    "hello".pop(); // TypeError: los strings no tienen pop().
+} catch (error) {
+    console.log("Se produjo un error: " + error.message);
+}
+console.log((10).toString(2)); // "1010": la base 2 es válida.
+try {
+    (10).toString(1); // RangeError: las bases admitidas van de 2 a 36.
+} catch (error) {
+    console.log("Se produjo un error: " + error.message);
+}
+// Un error de sintaxis escrito directamente impediría analizar todo el archivo.
+// JSON.parse permite mostrar un SyntaxError producido durante la ejecución.
+try {
+    JSON.parse('{"nombre": }');
 } catch (error) {
     console.log("Se produjo un error: " + error.message);
 }
 
 function addNumbers(a, b) {
-  return a - b; // Logical error
+  return a + b; // Corregido: restar aquí sería un error lógico, aunque el programa se ejecute.
 }
 console.log(addNumbers(5, 3));  
 
@@ -81,22 +96,24 @@ console.log(addNumbers(5, 3));
 // Tarea
 function addTwoNums(a,b) {
     try {
-        if (typeof a !== Number) {
-            throw new TypeError("The first argument is not a number")
-        } else if (typeof b!== Number) {
-            throw new TypeError("The second argument is not a number")
+        if (!Number.isFinite(a)) {
+            throw new TypeError("The first argument must be a finite number")
+        } else if (!Number.isFinite(b)) {
+            throw new TypeError("The second argument must be a finite number")
         } else {
-            console.log(a+b)
+            const result = a + b;
+            console.log(result);
+            return result;
         }
         
     } catch(error) {
-        console.log(error.message
-    
-        )
+        console.log(error.message);
     }
     
 }
-addTwoNums(5+"5")
+// La coma separa argumentos. 5 + "5" sería un solo argumento de texto: "55".
+addTwoNums(5, 5);   // Caso válido: muestra y devuelve 10.
+addTwoNums(5, "5"); // Caso inválido intencional: muestra el mensaje del segundo argumento.
 
 // Nota: Tambien existe finally, que se ejecuta siempre, independientemente de si se produjo un error o no. Se utiliza para liberar recursos o realizar tareas de limpieza después de un bloque try-catch.
 
@@ -108,3 +125,5 @@ try {
 } finally {
     console.log("Este bloque se ejecuta siempre, independientemente de si se produjo un error o no.");
 }
+// typeof devuelve texto, como "number", no el constructor Number.
+// Number.isFinite comprueba además que el dato no sea NaN ni infinito.

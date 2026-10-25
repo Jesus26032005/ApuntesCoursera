@@ -15,50 +15,62 @@ function normalizeName(value) {
 
 function averageScore(scores) {
   if (!Array.isArray(scores)) {
-    throw new Error("scores must be an array");
+    throw new TypeError("scores must be an array");
   }
   if (scores.length === 0) return null;
   let sum = 0;
-  for (const s of scores) sum += s;
-  return Math.round((sum / scores.length) * 100) / 100;
+  for (const score of scores) {
+    // Evita concatenar texto o aceptar NaN, infinitos y posiciones vacías.
+    if (!Number.isFinite(score)) throw new TypeError("scores must contain finite numbers");
+    sum += score;
+    if (!Number.isFinite(sum)) throw new RangeError("score sum is outside the finite range");
+  }
+  // Redondeo didáctico: conserva un número, no el texto que devuelve toFixed.
+  // La coma flotante sigue siendo aproximada; no es aritmética contable exacta.
+  return Number((sum / scores.length).toFixed(2));
 }
 
 function buildUserSummary(user) {
-  if (typeof user !== "object" || user === null) {
-    throw new Error("user must be an object");
+  if (typeof user !== "object" || user === null || Array.isArray(user)) {
+    throw new TypeError("user must be an object");
   }
-  const scores = Array.isArray(user["scores"]) ? user["scores"] : []; // notación de corchete
+  if (!Number.isFinite(user.id)) throw new TypeError("user id must be a finite number");
+  // Política del ejercicio: si scores no se proporciona, usamos [].
+  // Si sí se proporciona, debe ser un array válido; no ocultamos tipos incorrectos.
+  const scores = user["scores"] === undefined ? [] : user["scores"]; // notación de corchete
+  const avg = averageScore(scores);
   return {
     id: user.id,                       // notación de punto
     name: normalizeName(user.name),
     scoreCount: scores.length,
-    avg: averageScore(scores)          // [] -> null
+    avg                               // [] -> null
   };
 }
 
 function summarizeUsers(userArray) {
   if (!Array.isArray(userArray)) {
-    throw new Error("userArray must be an array");
+    throw new TypeError("userArray must be an array");
   }
-  return userArray.map(buildUserSummary);
+  // Materializa huecos como undefined para que no queden usuarios sin validar.
+  return Array.from(userArray).map(buildUserSummary);
 }
 
 function safeSummarizeUsers(userArray) {
   try {
     return { ok: true, data: summarizeUsers(userArray) };
   } catch (error) {
-    return { ok: false, error: error.message };
+    return { ok: false, error: error instanceof Error ? error.message : String(error) };
   }
 }
 
 function getUserDisplayNameById(userArray, id) {
   if (!Array.isArray(userArray)) {
-    throw new Error("userArray must be an array");
+    throw new TypeError("userArray must be an array");
   }
-  if (typeof id !== "number") {
-    throw new Error("id must be a number");
+  if (!Number.isFinite(id)) {
+    throw new TypeError("id must be a finite number");
   }
-  const found = userArray.find(u => u.id === id);
+  const found = userArray.find(u => u !== null && typeof u === "object" && !Array.isArray(u) && u.id === id);
   if (!found) {
     throw new Error("user not found");
   }
