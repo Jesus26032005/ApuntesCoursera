@@ -30,6 +30,8 @@ console.log(c); // Salida: 10
 c %= 4; // Equivalente a c = c % 4
 console.log(c); // Salida: 2
 
+// nota: una division entre cero devuelve Infinity, y una division de cero entre cero devuelve NaN (Not a Number).
+
 // 3. Operadores de Comparación: Se utilizan para comparar valores y devuelven un valor booleano (true o false).
 let d = 10;
 let e = "10";
