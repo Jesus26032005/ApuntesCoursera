@@ -97,3 +97,17 @@ class CuentaBancaria {
 
 // Polimorfismo: Es el principio de permitir que diferentes clases implementen métodos con el mismo nombre pero con comportamientos distintos. Esto permite a los objetos de diferentes clases ser tratados de manera uniforme, lo que facilita la extensibilidad y la flexibilidad del código. En JavaScript, se puede lograr mediante la sobrescritura de métodos en subclases, como se mostró en el ejemplo de la clase Empleado que sobrescribe el método saludar() de la clase Persona.
 
+// Nota: En el constructor se pueden tener valores por defecto, de esta manera si no se pasa un valor al crear una instancia de la clase, se utilizará el valor por defecto.
+class Producto {
+    constructor(nombre = 'Producto genérico', precio = 0) {
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+
+    mostrarInformacion() {
+        console.log(`Nombre: ${this.nombre}, Precio: ${this.precio}`);
+    }
+}
+
+const producto1 = new Producto();
+console.log(producto1)
